@@ -10,7 +10,6 @@ import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Builder.Default;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 
