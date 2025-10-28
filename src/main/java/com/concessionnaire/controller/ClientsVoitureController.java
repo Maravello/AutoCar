@@ -60,14 +60,15 @@ public Optional<ClientsVoiture> findClientsVoitureById(@PathVariable Long idVoit
     }
 
     @GetMapping("/login")
-    public ClientsVoiture getMethodName(@RequestParam String email,String password) {
-       Optional<ClientsVoiture> TheClient = clientsVoitureController.findByEmailAndPassword(email, password);
-       if(TheClient.isPresent() && TheClient.get().getPassword().equals(password)){
-        return TheClient.get();
-       }else{
+    public ClientsVoiture loginClient(@RequestParam String email, @RequestParam String password) {
+    Optional<ClientsVoiture> client = clientsVoitureController.findByEmailAndPassword(email, password);
+    
+    if (client.isPresent()) {
+        return client.get();
+    } else {
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou mot de passe incorrect");
-       }
     }
+}
     
 
     @DeleteMapping("/delete/{id}")
