@@ -63,7 +63,6 @@ public Optional<ClientsVoiture> findClientsVoitureById(@PathVariable Long idVoit
     @GetMapping("/login")
     public ClientsVoiture loginClient(@RequestParam String email, @RequestParam String password) {
     Optional<ClientsVoiture> client = clientsVoitureController.findByEmailAndPassword(email, password);
-    
     if (client.isPresent()) {
         return client.get();
     } else {
